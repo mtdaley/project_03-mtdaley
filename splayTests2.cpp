@@ -41,6 +41,13 @@ float calcAverageDepth(bool splayOnAdd) {
         // find a value if the action is "find". Be sure to measure
         // correctly the depth of the tree on find operations and
         // to calculate the sum of depths in the variable `sumOfDepths`
+        if (action == "add"){
+            splayTree.add(value);
+        } else if (action == "find"){
+            int depth = 0;
+            splayTree.find(value, depth);
+            sumOfDepths += depth;
+        }
 
 
 
