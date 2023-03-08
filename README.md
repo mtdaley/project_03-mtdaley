@@ -2,6 +2,17 @@
 
 ## Exploring binary search trees, AVL trees, and splay trees
 
+## Report
+For the first Binary Search Tree, I used a BST of integers 1-100 and entered and searched for them in order. The depth of each integer is one less than its value, which makes sense because each value is placed to the right of the last int as it's bigger than the other. Total depth is 99 and the depth of the root node is 0. Scatterplot shown below.
+![bstorder](plots/bstordered.png)
+
+
+
+
+
+
+
+
 For this project, you will:
 * store integers in a binary search tree, an AVL tree, and a splay tree,
 * store object of your custom time in a binary search tree, and AVL tree, and a splay tree,
