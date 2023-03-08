@@ -99,7 +99,7 @@ int main() {
     outFile.close();
 
     std::vector<Prospects> data;
-    std::string fn = "../data/milb_stats.csv";
+    std::string fn = "../milb_stats.csv";
     loadFromFile(fn, data);
     BinarySearchTree<Prospects> bst3;
     std::ofstream pFile;
