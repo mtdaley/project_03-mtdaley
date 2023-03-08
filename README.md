@@ -3,15 +3,49 @@
 ## Exploring binary search trees, AVL trees, and splay trees
 
 ## Report
-For the first Binary Search Tree, I used a BST of integers 1-100 and entered and searched for them in order. The depth of each integer is one less than its value, which makes sense because each value is placed to the right of the last int as it's bigger than the other. Total depth is 99 and the depth of the root node is 0. Scatterplot shown below.
+## BST
+For the first Binary Search Tree, I used a BST of integers 1-100 and entered and searched for them in order. The depth of each integer is one less than its value, which makes sense because each value is placed to the right of the last int as it's bigger than the other. Total depth is 99 and the depth of the root node is 0. Complexity is always O(n) Scatterplot shown below.
+
 ![bstorder](plots/bstordered.png)
 
+Next BST is with randomly ordered ints 1-100. The depth of each value is between 0 (root node) and 12 (depth of the tree). This depth is better than the last one due to the order that items were inputted. Complexity is at most O(n) but could be much less. Scatterplot shown below. 
 
+![bstrandom](plots/bstrandom.png)
 
+Last BST is a BST of my prospects class. Depth is from 0 (root node) to 956 (depth of tree). There are 1035 items in my dataset so this isn't very efficient considered that for the most part the vector is in order from low to high in ID value. Complexity is at most O(n) which will often be the case. Randomizing the order would probably have helped. Scatterplot below.
 
+![bstprospects](plots/bstprospects.png)
 
+## AVL
+Next is AVL trees for the ordered integer list. Depth is from 0 (root node) to 6 (depth of tree). This structure is much more efficient for this vector in terms of finding values as the depth is much less than the BST due to the properties of AVL trees where the depth of the children of a node cannot differ by more than 1. Complexity is O(logn) Scatterplot below.
 
+![avlorder](plots/avlordered.png)
 
+Next AVL is with randomly ordered ints 1-100. Depth is from 0 (root node) to 7 (depth of tree). This is a bit less efficient than the ordered vector but it is still pretty good. Complexity is also O(logn). Scatterplot below.
+
+![avlprospects](plots/avlrandom.png)
+
+Last AVL is of my prospects class. Depth is from 0 (root node) to 10 (depth of tree). This is significantly better than the BST as the depth is much less than the BST. Complexity is O(logn). Scatterplot below.
+
+![avlprospects](plots/avlprospects.png)
+
+## Splay Trees
+
+Last structure are Splay Trees (I will refer to them as SPT). For the ordered integers, the depth is only 1 because the tree makes rotations to bring the node up to depth 1 when using the find function. For example: 1 is at root. Then 2 is added to the right of it and when found goes to the root. Then 3 to the right of that, rotates to root with 1 and 2 on the left side and this repeats until the end. Complexity is O(n) for worst case. Scatterplot below. 
+
+![sptorder](plots/sptorder.png)
+
+Next is for random ints. This one is a bit more random, with root at 0 and depth of 12. This is because when a node is splayed to the root with the find function, it will not necessarily leave the right side empty as there may be existing nodes greater than it. Complexity is O(n) for worst case scenario. Scatterplot below.
+
+![sptrandom](plots/sptrandom.png)
+
+Next is for my prospects class. This one is kind of crazy looking because it's mostly in order like the ordered int vector earlier, but there's a few outliers that get a really high depth. Total depth is 862 with root at 0. Complexity is O(n) for worst case which is somewhat demonstrated by the depth of 862. Scatterplot below.
+
+![sptprospects](plots/sptprospects.png)
+
+Next is the test on searching for each integer 5 times in succession when randomly searching an ordered SPT. For each integer, the first search had a depth greater than 0 while the next 4 had depth 0. This is because when the find function finds a node, it splays it to the root, so of course in the next searches it will be at the root.
+
+Last was the test on splaying newly added nodes to the root. As we can see from the results, when splaying to the root on add it reduces the average depth by about 0.7. This is because in this specific document the find functions typically search for values that were recently added. This demonstrates the upside of splay trees when certain values are accessed more often than others.
 
 For this project, you will:
 * store integers in a binary search tree, an AVL tree, and a splay tree,
